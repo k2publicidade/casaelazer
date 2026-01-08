@@ -10,7 +10,8 @@
       "Bash(npm install:*)",
       "Bash(npx shadcn@latest init -y)",
       "Bash(npx shadcn@latest add button card input label textarea select dropdown-menu dialog toast)",
-      "Bash(npx shadcn:*)"
+      "Bash(npx shadcn:*)",
+      "Bash(npm run build:*)"
     ]
   }
 }
