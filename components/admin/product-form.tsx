@@ -30,10 +30,10 @@ const productSchema = z.object({
   description: z.string().optional(),
   category: z.string().min(1, 'Categoria é obrigatória'),
   subcategory: z.string().optional(),
-  price: z.coerce.number().min(0, 'Preço deve ser maior ou igual a 0'),
-  stock_quantity: z.coerce.number().int().min(0, 'Estoque deve ser maior ou igual a 0'),
+  price: z.number().min(0, 'Preço deve ser maior ou igual a 0'),
+  stock_quantity: z.number().int().min(0, 'Estoque deve ser maior ou igual a 0'),
   image_url: z.string().url().optional().or(z.literal('')),
-  active: z.boolean().default(true),
+  active: z.boolean(),
 })
 
 type ProductFormValues = z.infer<typeof productSchema>

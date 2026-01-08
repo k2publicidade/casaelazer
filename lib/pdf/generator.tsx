@@ -196,3 +196,14 @@ export function ListPDF({ list, matchedItems, notFoundItems, total }: ListPDFPro
     </Document>
   )
 }
+
+/**
+ * Generate PDF buffer from list data
+ * This function wraps the JSX rendering to make it usable in API routes
+ */
+export async function generatePDF(props: ListPDFProps): Promise<Uint8Array> {
+  const { renderToBuffer } = await import('@react-pdf/renderer')
+  const doc = ListPDF(props)
+  const buffer = await renderToBuffer(doc)
+  return new Uint8Array(buffer)
+}

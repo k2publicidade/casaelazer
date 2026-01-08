@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
-import { renderToBuffer } from '@react-pdf/renderer'
-import { ListPDF } from '@/lib/pdf/generator'
+import { generatePDF } from '@/lib/pdf/generator'
 import { generateExcel } from '@/lib/excel/generator'
 
 export async function POST(request: NextRequest) {
@@ -74,9 +73,9 @@ export async function POST(request: NextRequest) {
 
     if (format === 'pdf') {
       // Generate PDF
-      const pdfBuffer = await renderToBuffer(<ListPDF {...data} />)
+      const pdfBuffer = await generatePDF(data)
 
-      return new NextResponse(pdfBuffer, {
+      return new NextResponse(pdfBuffer.buffer as any, {
         headers: {
           'Content-Type': 'application/pdf',
           'Content-Disposition': `attachment; filename="orcamento-${listId}.pdf"`,
@@ -86,7 +85,7 @@ export async function POST(request: NextRequest) {
       // Generate Excel
       const excelBuffer = await generateExcel(data)
 
-      return new NextResponse(excelBuffer, {
+      return new NextResponse(Buffer.from(excelBuffer), {
         headers: {
           'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
           'Content-Disposition': `attachment; filename="orcamento-${listId}.xlsx"`,

@@ -7,11 +7,13 @@ export const metadata: Metadata = {
   description: 'Faça login para acessar sua conta',
 }
 
-export default function LoginPage({
+export default async function LoginPage({
   searchParams,
 }: {
-  searchParams: { message?: string }
+  searchParams: Promise<{ message?: string }>
 }) {
+  const params = await searchParams
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8">
@@ -22,9 +24,9 @@ export default function LoginPage({
           </p>
         </div>
 
-        {searchParams?.message && (
+        {params?.message && (
           <div className="rounded-md bg-blue-50 p-4">
-            <p className="text-sm text-blue-800">{searchParams.message}</p>
+            <p className="text-sm text-blue-800">{params.message}</p>
           </div>
         )}
 
