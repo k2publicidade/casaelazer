@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     default: "Casa e Lazer | O Melhor Pra Você",
     template: "%s | Casa e Lazer"
   },
-  description: "Tradição de 76 anos em materiais escolares, escritório e lazer. Envie sua lista escolar e receba orçamento completo em minutos. Qualidade e tecnologia em Guaratinguetá e região.",
-  keywords: ["papelaria", "materiais escolares", "lista escolar", "orçamento escolar", "guaratinguetá", "casa e lazer"],
+  description: "Tradição de 76 anos em materiais escolares, escritório e lazer. Envie sua lista escolar e receba orçamento completo em minutos. Qualidade e tecnologia no Rio de Janeiro e região.",
+  keywords: ["papelaria", "materiais escolares", "lista escolar", "orçamento escolar", "rio de janeiro", "casa e lazer"],
   authors: [{ name: "Casa e Lazer" }],
   creator: "Casa e Lazer",
   openGraph: {

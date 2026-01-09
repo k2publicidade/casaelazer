@@ -83,7 +83,7 @@ export function PublicFooter() {
           </p>
           <div className="flex gap-8 text-gray-500">
             <span className="flex items-center gap-2">
-              <MapPin className="w-4 h-4" /> Guaratinguetá, SP
+              <MapPin className="w-4 h-4" /> Rio de Janeiro - RJ
             </span>
             <span className="flex items-center gap-2">
               <Phone className="w-4 h-4" /> (12) 3122-1234

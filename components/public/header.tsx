@@ -12,6 +12,7 @@ const navigation = [
   { name: 'Início', href: '/' },
   { name: 'Lojas', href: '/lojas' },
   { name: 'Departamentos', href: '/produtos' },
+  { name: 'Blog', href: '/blog' },
   { name: 'Sobre', href: '/sobre' },
   { name: 'Contato', href: '/contato' },
 ]
@@ -55,7 +56,7 @@ export function PublicHeader() {
 
       {/* Main Header */}
       <header className="bg-white border-b shadow-sm sticky top-0 md:static">
-        <nav className="container mx-auto px-4 h-20 flex items-center justify-between">
+        <nav className="container mx-auto px-4 h-20 flex items-center justify-center md:justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
             <Image
