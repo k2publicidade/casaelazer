@@ -43,17 +43,17 @@ export function FAQSection() {
                             Separamos as principais dúvidas para facilitar sua experiência. Se ainda precisar de ajuda, fale com nosso time.
                         </p>
 
-                        <div className="bg-[#0f172a] rounded-2xl p-8 text-white relative overflow-hidden">
+                        <div className="bg-brand-blue-900 rounded-2xl p-8 text-white relative overflow-hidden">
                             {/* Decorative circle */}
                             <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16 blur-2xl"></div>
 
                             <h3 className="font-bold text-2xl mb-2">12.000+</h3>
-                            <p className="text-sm text-slate-400 mb-6">Pedidos entregues com sucesso</p>
+                            <p className="text-sm text-brand-blue-200 mb-6">Pedidos entregues com sucesso</p>
 
-                            <div className="relative h-2 bg-slate-700 rounded-full overflow-hidden mb-2">
-                                <div className="absolute top-0 left-0 h-full w-[85%] bg-red-500 rounded-full"></div>
+                            <div className="relative h-2 bg-brand-blue-800 rounded-full overflow-hidden mb-2">
+                                <div className="absolute top-0 left-0 h-full w-[85%] bg-brand-red-500 rounded-full"></div>
                             </div>
-                            <p className="text-xs text-slate-400 text-right">98% Satisfação</p>
+                            <p className="text-xs text-brand-blue-200 text-right">98% Satisfação</p>
                         </div>
                     </div>
 
@@ -97,15 +97,15 @@ export function FAQSection() {
 
             {/* Final CTA Strip similar to reference (Red strip) */}
             <div className="container mx-auto px-4 mt-20">
-                <div className="bg-[#0f172a] rounded-3xl p-10 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
+                <div className="bg-brand-blue-900 rounded-3xl p-10 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
                     <div className="relative z-10 max-w-2xl">
-                        <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center mb-6 shadow-xl shadow-red-900/20 text-white font-bold text-xl animate-pulse">
+                        <div className="w-16 h-16 rounded-full bg-brand-red-600 flex items-center justify-center mb-6 shadow-xl shadow-brand-red-900/20 text-white font-bold text-xl animate-pulse">
                             24/7
                         </div>
                         <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
                             Pronto para Otimizar suas Compras?
                         </h2>
-                        <p className="text-slate-400 text-lg">
+                        <p className="text-brand-blue-100 text-lg">
                             Vamos transformar sua experiência de compra de materiais escolares e de escritório. Rápido, fácil e confiável.
                         </p>
                     </div>

@@ -20,13 +20,17 @@ export function HeroSection() {
                 />
             </div>
 
-            {/* Animated Gradient Background */}
-            <div className="absolute inset-0 z-0 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-red-900/20 to-slate-900/50 animate-gradient-shift" />
-                <div className="absolute inset-0 bg-gradient-to-tl from-blue-900/30 via-transparent to-red-900/30 animate-gradient-shift-reverse" />
-                <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-[100px] animate-pulse-slow" />
-                <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-red-600/10 rounded-full blur-[100px] animate-pulse-slower" />
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-slate-800/20 rounded-full blur-[120px]" />
+            {/* Premium Animated Gradient Overlay - Intensified */}
+            <div className="absolute inset-0 z-0">
+                {/* Base Gradient - #0000FF Tones */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#000033]/90 via-[#0000FF]/40 to-[#000066]/90 animate-gradient-slow opacity-90 mix-blend-multiply" />
+
+                {/* Moving Light Overlay - Brighter Blue */}
+                <div className="absolute -top-[50%] -left-[50%] w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#0000FF]/30 via-transparent to-transparent animate-spin-slow opacity-60 mix-blend-screen" />
+
+                {/* Accent pulses */}
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#0000FF]/20 rounded-full blur-[100px] animate-pulse-slow mix-blend-screen" />
+                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#000099]/30 rounded-full blur-[100px] animate-pulse-slower mix-blend-screen" />
             </div>
 
             {/* Content */}
@@ -45,7 +49,7 @@ export function HeroSection() {
                         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white">
                             Tudo para sua Casa &
                         </h1>
-                        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight bg-gradient-to-r from-blue-400 via-red-400 to-blue-400 bg-clip-text text-transparent pb-2">
+                        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight bg-gradient-to-r from-blue-500 via-red-600 to-blue-500 bg-clip-text text-transparent pb-2">
                             Momentos de Lazer
                         </h2>
                     </div>
@@ -97,54 +101,7 @@ export function HeroSection() {
             {/* Bottom Gradient Fade */}
             <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f172a] to-transparent z-[5]" />
 
-            <style jsx>{`
-        @keyframes gradient-shift {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-        @keyframes gradient-shift-reverse {
-          0%, 100% { background-position: 100% 50%; }
-          50% { background-position: 0% 50%; }
-        }
-        @keyframes pulse-slow {
-          0%, 100% { opacity: 0.3; transform: scale(1); }
-          50% { opacity: 0.5; transform: scale(1.1); }
-        }
-        @keyframes pulse-slower {
-          0%, 100% { opacity: 0.2; transform: scale(1); }
-          50% { opacity: 0.4; transform: scale(1.15); }
-        }
-        .animate-gradient-shift {
-          background-size: 200% 200%;
-          animation: gradient-shift 15s ease-in-out infinite;
-        }
-        .animate-gradient-shift-reverse {
-          background-size: 200% 200%;
-          animation: gradient-shift-reverse 15s ease-in-out infinite;
-        }
-        .animate-pulse-slow {
-          animation: pulse-slow 6s ease-in-out infinite;
-        }
-        .animate-pulse-slower {
-          animation: pulse-slower 8s ease-in-out infinite;
-        }
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
-        .delay-500 { animation-delay: 0.5s; }
-        
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-      `}</style>
+
         </div>
     )
 }

@@ -10,7 +10,7 @@ export function FinalCTASection() {
         <Section
             background="primary"
             padding="large"
-            className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white relative overflow-hidden"
+            className="bg-gradient-to-br from-brand-blue-600 via-brand-blue-700 to-brand-blue-900 text-white relative overflow-hidden"
         >
             {/* Decorative Background Elements */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full -mr-64 -mt-64 blur-3xl pointer-events-none"></div>

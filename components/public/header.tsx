@@ -23,31 +23,31 @@ export function PublicHeader() {
 
   return (
     <div className="w-full relative z-50">
-      {/* Top Bar - Dark Blue/Slate as per reference */}
-      <div className="bg-[#0f172a] text-white py-2.5 text-xs font-medium hidden md:block border-b border-white/10">
+      {/* Top Bar - Brand Blue Theme */}
+      <div className="bg-brand-blue-900 text-white py-2.5 text-xs font-medium hidden md:block border-b border-white/10">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center gap-6">
-            <a href="mailto:contato@casaelazer.com.br" className="flex items-center gap-2 hover:text-red-400 transition-colors">
-              <Mail className="w-3.5 h-3.5 text-red-500" />
+            <a href="mailto:contato@casaelazer.com.br" className="flex items-center gap-2 hover:text-brand-red-400 transition-colors">
+              <Mail className="w-3.5 h-3.5 text-brand-red-500" />
               <span>contato@casaelazer.com.br</span>
             </a>
-            <div className="flex items-center gap-2 text-gray-400">
-              <Phone className="w-3.5 h-3.5 text-blue-500" />
+            <div className="flex items-center gap-2 text-brand-blue-200">
+              <Phone className="w-3.5 h-3.5 text-brand-blue-400" />
               <span>(21) 4004-1234</span>
             </div>
-            <Link href="/lojas" className="flex items-center gap-2 hover:text-red-400 transition-colors group">
-              <MapPin className="w-3.5 h-3.5 text-red-500 group-hover:animate-bounce" />
+            <Link href="/lojas" className="flex items-center gap-2 hover:text-brand-red-400 transition-colors group">
+              <MapPin className="w-3.5 h-3.5 text-brand-red-500 group-hover:animate-bounce" />
               <span>Nossas Lojas (16 Unidades)</span>
             </Link>
           </div>
 
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-3 border-r border-white/10 pr-4 mr-1">
-              <a href="#" className="hover:text-red-400 transition-colors"><Instagram className="w-3.5 h-3.5" /></a>
-              <a href="#" className="hover:text-red-400 transition-colors"><Facebook className="w-3.5 h-3.5" /></a>
-              <a href="#" className="hover:text-red-400 transition-colors"><Youtube className="w-3.5 h-3.5" /></a>
+              <a href="#" className="hover:text-brand-red-400 transition-colors"><Instagram className="w-3.5 h-3.5" /></a>
+              <a href="#" className="hover:text-brand-red-400 transition-colors"><Facebook className="w-3.5 h-3.5" /></a>
+              <a href="#" className="hover:text-brand-red-400 transition-colors"><Youtube className="w-3.5 h-3.5" /></a>
             </div>
-            <Link href="/listas/nova" className="hover:text-red-400 transition-colors">
+            <Link href="/listas/nova" className="hover:text-brand-red-400 transition-colors">
               Enviar Lista
             </Link>
           </div>
@@ -75,8 +75,8 @@ export function PublicHeader() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-sm font-bold uppercase tracking-wide transition-colors hover:text-blue-600 ${pathname === item.href
-                  ? 'text-blue-600'
+                className={`text-sm font-bold uppercase tracking-wide transition-colors hover:text-brand-blue-600 ${pathname === item.href
+                  ? 'text-brand-blue-600'
                   : 'text-slate-600'
                   }`}
               >
