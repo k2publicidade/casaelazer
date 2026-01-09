@@ -13,7 +13,7 @@ export function HeroSection() {
             {/* Background Image (Store Facade) - Low Opacity */}
             <div className="absolute inset-0 z-0">
                 <Image
-                    src="/store-front.png"
+                    src="/store-header-banner.jpg"
                     alt="Fachada Casa e Lazer"
                     fill
                     className="object-cover opacity-10 saturate-0"

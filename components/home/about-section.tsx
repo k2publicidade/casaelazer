@@ -65,7 +65,7 @@ export function AboutSection() {
                     <div className="relative">
                         <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-slate-100 shadow-2xl group">
                             <Image
-                                src="/store-event.png"
+                                src="/store-aisle.jpg"
                                 alt="Loja Casa e Lazer"
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-105"
