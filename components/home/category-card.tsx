@@ -28,14 +28,17 @@ export function CategoryCard({
             )}
         >
             {/* Background with Image or Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-900 group-hover:scale-110 transition-transform duration-700">
+            {/* Background with Image or Gradient */}
+            <div className="absolute inset-0 bg-slate-900 group-hover:scale-110 transition-transform duration-700">
                 {image ? (
                     <div
-                        className="absolute inset-0 bg-cover bg-center opacity-60 mix-blend-overlay"
+                        className="absolute inset-0 bg-cover bg-center opacity-90 transition-opacity duration-500 group-hover:opacity-100"
                         style={{ backgroundImage: `url(${image})` }}
                     />
                 ) : (
-                    <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white/10 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-900">
+                        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white/10 to-transparent"></div>
+                    </div>
                 )}
             </div>
 

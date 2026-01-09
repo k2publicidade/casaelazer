@@ -11,36 +11,42 @@ const categories = [
         icon: Utensils,
         count: 1250,
         href: '/produtos?category=utilidades',
+        image: 'https://images.unsplash.com/photo-1556910103-1c02745a30bf?q=80&w=600&auto=format&fit=crop'
     },
     {
         title: 'Cama, Mesa e Banho',
         icon: Home,
         count: 850,
         href: '/produtos?category=cama-mesa-banho',
+        image: 'https://images.unsplash.com/photo-1522771753062-588773c43510?q=80&w=600&auto=format&fit=crop'
     },
     {
         title: 'Brinquedos',
         icon: Gamepad2,
         count: 560,
         href: '/produtos?category=brinquedos',
+        image: 'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?q=80&w=600&auto=format&fit=crop'
     },
     {
         title: 'Papelaria e Escritório',
         icon: Notebook,
         count: 3200,
         href: '/produtos?category=papelaria',
+        image: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=600&auto=format&fit=crop'
     },
     {
         title: 'Decoração',
         icon: Armchair,
         count: 450,
         href: '/produtos?category=decoracao',
+        image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=600&auto=format&fit=crop'
     },
     {
         title: 'Ferramentas e Jardim',
         icon: Hammer,
         count: 320,
         href: '/produtos?category=ferramentas',
+        image: 'https://images.unsplash.com/photo-1416872927374-d3c747f727aa?q=80&w=600&auto=format&fit=crop'
     },
 ]
 
@@ -65,6 +71,7 @@ export function CategoriesSection() {
                         icon={category.icon}
                         count={category.count}
                         href={category.href}
+                        image={category.image}
                     />
                 ))}
             </Grid>

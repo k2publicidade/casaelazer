@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Upload, ArrowRight, MapPin, Phone, Mail, Clock } from 'lucide-react'
+import { Upload, ArrowRight, MapPin, Phone, Mail, Clock, Store } from 'lucide-react'
 import { Section } from '@/components/ui/section'
 import { SectionTitle } from '@/components/ui/section-title'
 import { Grid } from '@/components/ui/grid'
@@ -56,10 +56,11 @@ export function FinalCTASection() {
                     <h3 className="font-heading font-extrabold text-2xl mb-10 tracking-tight uppercase">Informações de Contato</h3>
                     <Grid cols={3} gap={6} className="text-left">
                         <ContactCard
-                            icon={MapPin}
-                            title="Endereço"
-                            content="Rua Francisco Glicério, 432"
-                            content2="Centro, Guaratinguetá - SP"
+                            icon={Store}
+                            title="Nossas Lojas"
+                            content="Encontre a unidade mais próxima"
+                            content2="Clique para ver endereços"
+                            href="/lojas"
                         />
                         <ContactCard
                             icon={Phone}

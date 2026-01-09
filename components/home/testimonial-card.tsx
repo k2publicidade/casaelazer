@@ -21,7 +21,7 @@ export function TestimonialCard({
     return (
         <div
             className={cn(
-                'bg-white rounded-3xl p-8 md:p-10 shadow-xl border border-gray-100 mx-3 flex flex-col h-full relative group transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-100',
+                'bg-white rounded-3xl p-8 md:p-10 shadow-xl border border-gray-100 flex flex-col h-full relative group transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-100',
                 className
             )}
         >

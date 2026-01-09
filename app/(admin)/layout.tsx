@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
-import { AdminSidebar } from '@/components/admin/admin-sidebar'
+import { Sidebar } from '@/components/ui/modern-sidebar'
 import { SidebarProvider } from '@/components/ui/sidebar'
 
 export default async function AdminLayout({
@@ -19,7 +19,7 @@ export default async function AdminLayout({
   const { data: profile } = await supabase
     .from('profiles')
     .select('role')
-    .eq('id', user.id)
+    .eq('id', user?.id)
     .single()
 
   if (!profile || (profile.role !== 'admin' && profile.role !== 'school')) {
@@ -27,13 +27,11 @@ export default async function AdminLayout({
   }
 
   return (
-    <SidebarProvider>
-      <div className="flex min-h-screen w-full">
-        <AdminSidebar />
-        <main className="flex-1 overflow-y-auto">
-          {children}
-        </main>
-      </div>
-    </SidebarProvider>
+    <div className="flex min-h-screen w-full bg-slate-50/30">
+      <Sidebar />
+      <main className="flex-1 w-full relative">
+        {children}
+      </main>
+    </div>
   )
 }

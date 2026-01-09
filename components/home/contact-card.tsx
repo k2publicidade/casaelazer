@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -6,6 +7,7 @@ interface ContactCardProps {
     title: string
     content: string
     content2?: string
+    href?: string
     className?: string
 }
 
@@ -14,9 +16,10 @@ export function ContactCard({
     title,
     content,
     content2,
+    href,
     className,
 }: ContactCardProps) {
-    return (
+    const CardContent = (
         <div
             className={cn(
                 'bg-white/10 border border-white/20 rounded-2xl p-6 text-white backdrop-blur-md flex items-start gap-4 transition-all duration-300 hover:bg-white/15 hover:border-white/30 hover:translate-x-1',
@@ -42,4 +45,10 @@ export function ContactCard({
             </div>
         </div>
     )
+
+    if (href) {
+        return <Link href={href} className="block">{CardContent}</Link>
+    }
+
+    return CardContent
 }

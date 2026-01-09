@@ -43,41 +43,100 @@ Nome: Administrador Casa e Lazer
 
 ---
 
-## 🎯 Scripts SQL (Referência - Já Executados)
+## 🎯 Scripts SQL (Já Executados)
 
-> ℹ️ **Nota**: Todos os scripts abaixo **JÁ FORAM EXECUTADOS** com sucesso.
-> Esta seção é mantida apenas para referência e documentação.
+### Passo 1: Acessar o Supabase Dashboard
+
+1. Acesse: https://app.supabase.com
+2. Faça login com sua conta
+3. Selecione o projeto **tenggtjrlrvmutseeuys**
+4. Vá em **SQL Editor** (menu lateral esquerdo)
+
+### Passo 2: Executar Scripts SQL na Ordem
+
+Execute os seguintes scripts **NA ORDEM INDICADA**. Para cada script:
+
+1. Clique em **"+ New Query"**
+2. Copie o conteúdo do arquivo correspondente
+3. Cole no editor
+4. Clique em **"Run"** (ou pressione Ctrl+Enter)
+5. Aguarde a confirmação de sucesso
+6. Prossiga para o próximo script
+
+#### 📁 Ordem de Execução:
 
 Os scripts estão em: `docs/supabase/`
 
-1. ✅ **`01-extensions.sql`** - Extensões PostgreSQL habilitadas
-2. ✅ **`02-schema.sql`** - Todas as tabelas criadas
-3. ✅ **`03-indexes.sql`** - Índices aplicados
-4. ✅ **`04-functions.sql`** - Functions e triggers criados
-5. ✅ **`05-rls-policies.sql`** - 34 RLS policies aplicadas
-6. ✅ **`06-seeds.sql`** - Dados iniciais inseridos
+1. **`01-extensions.sql`**
+   - Habilita extensões PostgreSQL: UUID, Vector, Unaccent
+   - ⚠️ IMPORTANTE: Execute primeiro!
+
+2. **`02-schema.sql`**
+   - Cria todas as tabelas do sistema
+   - Tabelas: profiles, schools, products, material_lists, blog_posts, pages
+
+3. **`03-indexes.sql`**
+   - Cria índices para otimização de queries
+   - Melhora performance de buscas
+
+4. **`04-functions.sql`**
+   - Cria funções e triggers auxiliares
+   - Includes: auto-update timestamps, profile creation triggers
+
+5. **`05-rls-policies.sql`**
+   - Configura Row Level Security (RLS)
+   - Define permissões de acesso por role (admin, school, parent)
+
+6. **`06-seeds.sql`**
+   - Insere dados iniciais
+   - Categorias de produtos, páginas institucionais, produtos exemplo
 
 ---
 
-## 🚀 Como Usar o Sistema
+## 👤 Passo 3: Criar Primeiro Usuário Admin
 
-### 1. Fazer Login
+Após executar todos os scripts SQL:
 
-1. Acesse: http://localhost:3000/login (ou sua URL de produção)
-2. Faça login com as credenciais do admin:
-   - **Email**: `k2publicidade@yahoo.com.br`
-   - **Senha**: A senha configurada na criação do usuário
-3. Você será redirecionado para o painel admin: `/admin`
+### 3.1. Criar Usuário no Supabase Auth
 
-### 2. Redefinir Senha (Se Necessário)
+1. No Supabase Dashboard, vá em **Authentication** → **Users**
+2. Clique em **"Add User"** → **"Create new user"**
+3. Preencha:
+   - **Email**: seu-email@casaelazer.com (ou seu email preferido)
+   - **Password**: Senha123! (ou uma senha segura)
+   - ✅ Marque: **"Auto Confirm User"**
+4. Clique em **"Create User"**
 
-Se não souber a senha do usuário admin:
+### 3.2. Promover Usuário para Admin
 
-1. Acesse o Supabase Dashboard: https://supabase.com/dashboard/project/tuwqhdayuefuchotrspq
-2. Vá em **Authentication** → **Users**
-3. Localize o usuário `k2publicidade@yahoo.com.br`
-4. Clique nos 3 pontinhos → **Reset Password**
-5. Defina uma nova senha ou envie email de recuperação
+1. Volte ao **SQL Editor**
+2. Execute o seguinte SQL (substituindo o email):
+
+```sql
+-- Promover usuário para admin
+UPDATE profiles
+SET
+  role = 'admin',
+  full_name = 'Administrador Casa e Lazer'
+WHERE id = (
+  SELECT id
+  FROM auth.users
+  WHERE email = 'seu-email@casaelazer.com'
+);
+```
+
+3. Clique em **"Run"**
+4. Deve retornar: **"Success. 1 rows affected"**
+
+---
+
+## 🔓 Passo 4: Fazer Login no Sistema
+
+1. Acesse: http://localhost:3001/login
+2. Faça login com as credenciais criadas:
+   - Email: seu-email@casaelazer.com
+   - Senha: Senha123!
+3. Você será redirecionado para o painel admin: http://localhost:3001/admin
 
 ---
 

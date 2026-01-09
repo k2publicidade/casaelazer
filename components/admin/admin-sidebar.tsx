@@ -12,6 +12,8 @@ import {
   FileCode,
   LogOut,
   ChevronRight,
+  Store,
+  Settings,
 } from 'lucide-react'
 import {
   Sidebar,
@@ -72,9 +74,22 @@ const menuItems = [
     ],
   },
   {
+    title: 'Lojas',
+    icon: Store,
+    items: [
+      { title: 'Listar Lojas', href: '/admin/lojas' },
+      { title: 'Nova Loja', href: '/admin/lojas/nova' },
+    ],
+  },
+  {
     title: 'Páginas',
     href: '/admin/paginas',
     icon: FileText,
+  },
+  {
+    title: 'Configurações',
+    href: '/admin/configuracoes',
+    icon: Settings,
   },
 ]
 
