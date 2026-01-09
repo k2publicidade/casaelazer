@@ -7,6 +7,7 @@ import { FAQSection } from '@/components/home/faq-section'
 import { FeaturedProductsSection } from '@/components/home/featured-products-section'
 import { TestimonialsSection } from '@/components/home/testimonials-section'
 import { FinalCTASection } from '@/components/home/final-cta-section'
+import { Reveal } from '@/components/ui/reveal'
 
 export default function HomePage() {
     return (
@@ -14,28 +15,44 @@ export default function HomePage() {
             <HeroSection />
 
             {/* Services Grid overlapping Hero slightly */}
-            <ServicesSection />
+            <div className="-mt-20 relative z-20">
+                <Reveal width="100%" delay={0.4} variant="scale">
+                    <ServicesSection />
+                </Reveal>
+            </div>
 
-            <AboutSection />
+            <Reveal width="100%" delay={0.5} variant="slide-right">
+                <AboutSection />
+            </Reveal>
 
             {/* Divider / Brand Strip could go here */}
 
-            <ProcessSection />
+            <Reveal width="100%" delay={0.5} variant="fade">
+                <ProcessSection />
+            </Reveal>
 
             <WhyUsSection />
 
             {/* Reuse existing sections that still fit or are needed */}
             <div className="py-20 bg-white">
-                <FeaturedProductsSection />
+                <Reveal width="100%" delay={0.5} variant="slide-up">
+                    <FeaturedProductsSection />
+                </Reveal>
             </div>
 
-            <FAQSection />
+            <Reveal width="100%" delay={0.5} variant="slide-left">
+                <FAQSection />
+            </Reveal>
 
             {/* Reuse Testimonials but maybe adapted later, keeping for content density */}
-            <TestimonialsSection />
+            <Reveal width="100%" delay={0.5} variant="scale">
+                <TestimonialsSection />
+            </Reveal>
 
             {/* Keeping FinalCTA as footer pre-empt */}
-            <FinalCTASection />
+            <Reveal width="100%" delay={0.5} variant="blur">
+                <FinalCTASection />
+            </Reveal>
         </div>
     )
 }
