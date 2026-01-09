@@ -20,8 +20,26 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Casa e Lazer - Materiais Escolares",
-  description: "Encontre todos os materiais escolares da sua lista em um só lugar. Envie sua lista e receba orçamento completo em minutos!",
+  title: {
+    default: "Casa e Lazer | O Melhor Pra Você",
+    template: "%s | Casa e Lazer"
+  },
+  description: "Tradição de 76 anos em materiais escolares, escritório e lazer. Envie sua lista escolar e receba orçamento completo em minutos. Qualidade e tecnologia em Guaratinguetá e região.",
+  keywords: ["papelaria", "materiais escolares", "lista escolar", "orçamento escolar", "guaratinguetá", "casa e lazer"],
+  authors: [{ name: "Casa e Lazer" }],
+  creator: "Casa e Lazer",
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: "https://casaelazer.com.br",
+    title: "Casa e Lazer | O Melhor Pra Você",
+    description: "Tradição de 76 anos em materiais escolares. Envie sua lista e receba orçamento em minutos!",
+    siteName: "Casa e Lazer",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

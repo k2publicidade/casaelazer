@@ -3,15 +3,16 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
-import { ShoppingBag, Menu, X } from 'lucide-react'
+import { ShoppingBag, Menu, X, Phone, Mail, MapPin, Instagram, Facebook, Youtube, Search } from 'lucide-react'
 import { useState } from 'react'
 import { useUser } from '@/hooks/use-user'
+import Image from 'next/image'
 
 const navigation = [
   { name: 'Início', href: '/' },
-  { name: 'Produtos', href: '/produtos' },
-  { name: 'Criar Lista', href: '/listas/nova' },
-  { name: 'Blog', href: '/blog' },
+  { name: 'Lojas', href: '/lojas' },
+  { name: 'Departamentos', href: '/produtos' },
+  { name: 'Sobre', href: '/sobre' },
   { name: 'Contato', href: '/contato' },
 ]
 
@@ -21,107 +22,110 @@ export function PublicHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <nav className="container flex h-16 items-center justify-between px-4">
-        <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-          <ShoppingBag className="h-6 w-6" />
-          <span>Casa e Lazer</span>
-        </Link>
-
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex md:gap-6 items-center">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                pathname === item.href
-                  ? 'text-foreground'
-                  : 'text-muted-foreground'
-              }`}
-            >
-              {item.name}
+    <div className="w-full relative z-50">
+      {/* Top Bar - Dark Blue/Slate as per reference */}
+      <div className="bg-[#0f172a] text-white py-2.5 text-xs font-medium hidden md:block border-b border-white/10">
+        <div className="container mx-auto px-4 flex justify-between items-center">
+          <div className="flex items-center gap-6">
+            <a href="mailto:contato@casaelazer.com.br" className="flex items-center gap-2 hover:text-red-400 transition-colors">
+              <Mail className="w-3.5 h-3.5 text-red-500" />
+              <span>contato@casaelazer.com.br</span>
+            </a>
+            <div className="flex items-center gap-2 text-gray-400">
+              <Phone className="w-3.5 h-3.5 text-blue-500" />
+              <span>(21) 4004-1234</span>
+            </div>
+            <Link href="/lojas" className="flex items-center gap-2 hover:text-red-400 transition-colors group">
+              <MapPin className="w-3.5 h-3.5 text-red-500 group-hover:animate-bounce" />
+              <span>Nossas Lojas (16 Unidades)</span>
             </Link>
-          ))}
+          </div>
+
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3 border-r border-white/10 pr-4 mr-1">
+              <a href="#" className="hover:text-red-400 transition-colors"><Instagram className="w-3.5 h-3.5" /></a>
+              <a href="#" className="hover:text-red-400 transition-colors"><Facebook className="w-3.5 h-3.5" /></a>
+              <a href="#" className="hover:text-red-400 transition-colors"><Youtube className="w-3.5 h-3.5" /></a>
+            </div>
+            <Link href="/listas/nova" className="hover:text-red-400 transition-colors">
+              Enviar Lista
+            </Link>
+          </div>
         </div>
+      </div>
 
-        <div className="hidden md:flex items-center gap-4">
-          {user ? (
-            <>
-              {(isAdmin || isSchool) && (
-                <Button variant="outline" asChild>
-                  <Link href="/admin">Admin</Link>
-                </Button>
-              )}
-              <Button asChild>
-                <Link href="/listas/nova">Criar Lista</Link>
-              </Button>
-            </>
-          ) : (
-            <>
-              <Button variant="ghost" asChild>
-                <Link href="/login">Entrar</Link>
-              </Button>
-              <Button asChild>
-                <Link href="/cadastro">Cadastrar</Link>
-              </Button>
-            </>
-          )}
-        </div>
+      {/* Main Header */}
+      <header className="bg-white border-b shadow-sm sticky top-0 md:static">
+        <nav className="container mx-auto px-4 h-20 flex items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2 group">
+            <Image
+              src="/logo-blue.png"
+              alt="Casa & Lazer Logo"
+              width={150}
+              height={40}
+              className="h-10 w-auto object-contain max-w-[150px]"
+              priority
+            />
+          </Link>
 
-        {/* Mobile menu button */}
-        <button
-          className="md:hidden"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
-      </nav>
-
-      {/* Mobile Navigation */}
-      {mobileMenuOpen && (
-        <div className="md:hidden border-t">
-          <div className="container space-y-1 px-4 py-4">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`block px-3 py-2 rounded-md text-base font-medium ${
-                  pathname === item.href
-                    ? 'bg-accent text-foreground'
-                    : 'text-muted-foreground hover:bg-accent hover:text-foreground'
-                }`}
-                onClick={() => setMobileMenuOpen(false)}
+                className={`text-sm font-bold uppercase tracking-wide transition-colors hover:text-blue-600 ${pathname === item.href
+                  ? 'text-blue-600'
+                  : 'text-slate-600'
+                  }`}
               >
                 {item.name}
               </Link>
             ))}
-            <div className="pt-4 space-y-2">
-              {user ? (
-                <>
-                  {(isAdmin || isSchool) && (
-                    <Button variant="outline" className="w-full" asChild>
-                      <Link href="/admin">Admin</Link>
-                    </Button>
-                  )}
-                  <Button className="w-full" asChild>
-                    <Link href="/listas/nova">Criar Lista</Link>
-                  </Button>
-                </>
-              ) : (
-                <>
-                  <Button variant="ghost" className="w-full" asChild>
-                    <Link href="/login">Entrar</Link>
-                  </Button>
-                  <Button className="w-full" asChild>
-                    <Link href="/cadastro">Cadastrar</Link>
-                  </Button>
-                </>
-              )}
+          </div>
+
+          {/* Right Actions */}
+          <div className="hidden md:flex items-center gap-4">
+            <button className="p-2 text-slate-400 hover:text-blue-600 transition-colors">
+              <Search className="w-5 h-5" />
+            </button>
+            <Link
+              href="/listas/nova"
+              className="bg-[#0f172a] text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-blue-700 transition-all shadow-lg hover:shadow-blue-900/20 active:scale-95 flex items-center gap-2"
+            >
+              Orçamento Rápido
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span>
+            </Link>
+          </div>
+
+          {/* Mobile menu button */}
+          <button
+            className="md:hidden p-2 text-slate-700"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </nav>
+
+        {/* Mobile Navigation */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t bg-white absolute w-full left-0 top-full shadow-xl">
+            <div className="container space-y-1 px-4 py-6">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="block px-4 py-3 rounded-lg text-base font-medium text-slate-600 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
             </div>
           </div>
-        </div>
-      )}
-    </header>
+        )}
+      </header>
+    </div>
   )
 }

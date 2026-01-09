@@ -82,4 +82,24 @@
   body {
     @apply bg-background text-foreground;
   }
+  html {
+    scroll-behavior: smooth;
+  }
+  ::selection {
+    @apply bg-blue-600/20 text-blue-900;
+  }
 }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-50;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-200 rounded-full border-2 border-transparent bg-clip-padding hover:bg-gray-300 transition-colors;
+}
+
